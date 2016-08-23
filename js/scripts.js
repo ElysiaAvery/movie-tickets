@@ -8,18 +8,26 @@ function Ticket(movie, time, discount, price){
 }
 
 Ticket.prototype.ticketPrice = function() {
-  if (this.time === "9:00AM" || this.time === "11:15AM" && this.discount === "child"){
-    this.price = 0;
-  } else if (this.time === "2:00PM" || this.time === "7:00PM" || this.time === "9:15PM" && this.discount === "child"){
-    this.price = 0;
-  } else if (this.time === "9:00AM" || this.time === "11:15AM" && this.discount === "senior"){
-    this.price = 4;
-  } else if (this.time === "2:00PM" || this.time === "7:00PM" || this.time === "9:15PM" && this.discount === "senior"){
-    this.price = 8;
-  } else if (this.time === "9:00AM" || this.time === "11:15AM" && this.discount === "student"){
-    this.price = 6;
-  } else if (this.time === "2:00PM" || this.time === "7:00PM" || this.time === "9:15PM" && this.discount === "student"){
-    this.price = 14;
+  if (this.time === "9:00AM" || this.time === "11:15AM") {
+    if (this.discount === "child"){
+      this.price = 0;
+    } else if (this.discount === "student"){
+      this.price = 6;
+    } else if (this.discount === "senior"){
+      this.price = 4;
+    } else {
+      this.price = this.price/2;
+    }
+  } else {
+    if (this.discount === "child"){
+      this.price = 0;
+    } else if (this.discount === "student"){
+      this.price = 14;
+    } else if (this.discount === "senior"){
+      this.price = 8;
+    } else {
+      return this.price;
+    }
   }
   return this.price;
 }
@@ -41,7 +49,9 @@ $(document).ready(function(){
     $(".ticket-result").append("<h3>Your Movie is: "+ newTicket.movie +"</h3>");
     $(".ticket-result").append("<h3>Your movie time is: "+ newTicket.time +"</h3>");
     $(".ticket-result").append("<h3>Your Price is: $"+ newTicket.ticketPrice() +"</h3>");
-  });
 
-  resetFields();
+    $("#reset").click(function(event) {
+        $(".ticket-result").empty();
+      })
+  });
 });
