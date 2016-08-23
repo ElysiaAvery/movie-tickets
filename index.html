@@ -9,33 +9,44 @@
   </head>
   <body>
     <div class="container">
+      <h2>Movie Tickets</h2>
       <form>
         <div class="row">
-          <div class="com-md-8">
+          <div class="col-md-6">
+            <label for="movie-name">Select your movie:</label>
             <select id="movie-name" class="form-control">
-              <option value="alien">Alien</option>
-              <option value="mad-max">Mad Max</option>
-              <option value="departed">The Departed</option>
-              <option value="star-wars">Star Wars</option>
-              <option value="treasure">National Treasure</option>
+              <option value=""></option>
+              <option value="Alien">Alien</option>
+              <option value="Mad Max">Mad Max</option>
+              <option value="Departed">The Departed</option>
+              <option value="Star Wars">Star Wars</option>
+              <option value="National Treasure">National Treasure</option>
             </select>
 
+            <label for="time">Select your showing:</label>
             <select id="time" class="form-control">
-              <option value="matinee">9:00AM</option>
-              <option value="matinee">11:15AM</option>
-              <option value="regular">2:00PM</option>
-              <option value="regular">7:00PM</option>
-              <option value="regular">9:15PM</option>
+              <option value=""></option>
+              <option value="9:00AM">9:00AM</option>
+              <option value="11:15AM">11:15AM</option>
+              <option value="2:00PM">2:00PM</option>
+              <option value="7:00PM">7:00PM</option>
+              <option value="9:15PM">9:15PM</option>
             </select>
 
+            <label for="discount">Do you qualify for any discounts? Select below.</label>
             <select id="discount" class="form-control">
+              <option value=""></option>
               <option value="child">Children(age 10 or under)</option>
               <option value="senior">Senior(age 60+)</option>
               <option value="student">Student</option>
             </select>
           </div>
         </div>
+        <button type="submit" class="btn btn-success">Submit!</button>
       </form>
+      <div class="ticket-result">
+
+      </div>
     </div>
 
   </body>
